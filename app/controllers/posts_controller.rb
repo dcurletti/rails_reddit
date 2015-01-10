@@ -6,11 +6,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    ## subs.each
+    ##   checkbox sub.name, sub.id
+    ## @post_sub.new()
     @post.user_id = current_user.id
-    @post.sub_id = params[:sub_id]
 
     if @post.save
-      redirect_to sub_url(@post.sub_id)
+      redirect_to sub_url(@post.subs.first#need to create subposts row)
     else
       #might send another model as well if needed
       flash.now[:errors] = @post.errors.full_messages

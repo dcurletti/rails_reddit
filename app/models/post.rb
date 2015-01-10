@@ -13,11 +13,17 @@
 #
 
 class Post < ActiveRecord::Base
-
-  validates :title, :url, :content, :user_id, :sub_id, presence: true
+  validates :title, :url, :content, :user_id, presence: true
 
   belongs_to :user
-  belongs_to :sub
+
+  has_many :sub_posts
+
+  has_many(
+    :subs,
+    through: :sub_posts,
+    source: :sub
+  )
   has_many :comments
 
 end

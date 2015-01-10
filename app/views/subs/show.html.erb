@@ -27,7 +27,8 @@
           <%= post.user.email %>
         </td>
         <td>
-
+          <a href="<%= sub_post_url(params[:id], post.id) %>"></a>
+          <%= post.comments.count; "hello"  %>
         </td>
       </tr>
     <% end %>

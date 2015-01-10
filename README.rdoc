@@ -1,2 +1,5 @@
 TO DO:
-Disallow null for Sub title
+Disallow null for Sub title DB level
+Login after creating user
+Need to add the sub id to the sub_posts table, to then redirect
+to somewhere 

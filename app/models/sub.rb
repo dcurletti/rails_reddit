@@ -15,6 +15,8 @@ class Sub < ActiveRecord::Base
   validates :title, uniqueness: true
 
   belongs_to :user
-  has_many :posts, dependent: :destroy
+  has_many :sub_posts
+
+  has_many :posts, through: :sub_posts, source: :post
 
 end
