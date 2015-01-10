@@ -1,0 +1,27 @@
+<% action_url = sub.persisted? ? sub_url(sub) : subs_url %>
+<% http_method = sub.persisted? ? "PATCH" : "POST" %>
+<% button_text = sub.persisted? ? "Update Sub!" : "Create Sub!" %>
+
+<div id="name" class="col-xs-6 col-sm-4">
+</div>
+
+<div id="name" class="col-xs-6 col-sm-4">
+  <h1><%= button_text %></h1>
+  <form class="form-horizontal" role="form" action= "<%= action_url %>" method="<%= http_method %>" class="navbar-form">
+    <div class="form-group">
+
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+      <label for="sub_title">Sub Title:</label>
+      <input class="form-control" type="text" name="sub[title]" id="sub_title" value="<%= @sub.title %>">
+      <br>
+
+      <label for="sub_description">Sub Description:</label>
+      <textarea class="form-control" type="text" name="sub[description]" id="sub_description" value="<%= @sub.description %>"><%= @sub.description %></textarea>
+      <br>
+
+      <input class="btn btn-primary btn-sm btn-block" type="submit" value="<%= button_text %>">
+    </div>
+  </form>
+
+</div>

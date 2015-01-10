@@ -1,0 +1,31 @@
+<% action_url = post.persisted? ? sub_post_url(post) : sub_posts_url(params[:sub_id]) %>
+<% http_method = post.persisted? ? "PATCH" : "POST" %>
+<% button_text = post.persisted? ? "Update Post!" : "Create Post!" %>
+
+<div id="name" class="col-xs-6 col-sm-4">
+</div>
+
+<div id="name" class="col-xs-6 col-sm-4">
+  <h1><%= button_text %></h1>
+  <form class="form-horizontal" role="form" action= "<%= action_url %>" method="<%= http_method %>" class="navbar-form">
+    <div class="form-group">
+
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+      <label for="post_title">Post Title:</label>
+      <input class="form-control" type="text" name="post[title]" id="post_title" value="<%= @post.title %>">
+      <br>
+
+      <label for="post_url">URL:</label>
+      <input class="form-control" type="text" name="post[url]" id="post_url" value="<%= @post.url %>">
+      <br>
+
+      <label for="post_content">Content:</label>
+      <textarea class="form-control" type="text" name="post[content]" id="post_content" value="<%= @post.content %>"><%= @post.content %></textarea>
+      <br>
+
+      <input class="btn btn-primary btn-sm btn-block" type="submit" value="<%= button_text %>">
+    </div>
+  </form>
+
+</div>

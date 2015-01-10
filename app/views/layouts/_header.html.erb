@@ -1,0 +1,25 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="fluid-container">
+    <ul class="nav navbar-nav">
+
+      <% if logged_in? %>
+
+      <% end %>
+
+      <li>
+        <a href="<%= logged_in? ? root_url : new_session_url %>">
+          <%= logged_in? ? current_user.email : "Login" %>
+        </a></li>
+      <li>
+        <a href="<%= session_url if logged_in? %>" data-method="delete">
+          <%= "Logout" if logged_in? %>
+        </a></li>
+      </li>
+      <li>
+        <a href="<%= new_sub_url if logged_in? %>" >
+          <%= "Create a new Sub!" if logged_in? %>
+        </a></li>
+      </li>
+    </ul>
+  </div>
+</nav>
